@@ -1,0 +1,35 @@
+@keyframes colorCycle {
+  0%,
+  100% {
+    filter: brightness(0);
+  }
+  33%,
+  55% {
+    filter: none;
+  }
+}
+
+.tittle {
+  font-size: 5rem;
+  text-align: center;
+  font-weight: 800;
+  margin-top: 5rem;
+
+  &:first-child {
+    margin-left: 0.5rem;
+  }
+  span {
+    background: clip;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: colorCycle 13s ease-in-out infinite;
+  }
+
+  span:nth-child(1) {
+    background-image: linear-gradient(90deg, #007cf0, #00dfd8);
+  }
+  span:nth-child(2) {
+    background-image: linear-gradient(90deg, #7928ca, #ff0080);
+    animation-delay: 6s;
+  }
+}

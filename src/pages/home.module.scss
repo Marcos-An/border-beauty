@@ -1,0 +1,65 @@
+.wrapper {
+  color: var(--white);
+  padding: 0rem 13rem;
+}
+
+.interective_container {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  margin-top: 10rem;
+  border-radius: 2rem;
+  height: 65rem;
+
+  .preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--gray);
+    border-radius: 2rem 0rem 0rem 2rem;
+    height: 65rem;
+
+    .clearButton {
+      position: absolute;
+      bottom: 3rem;
+      left: 4rem;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: 500;
+      border: 1px solid var(--black);
+      background-color: var(--black);
+      color: var(--white);
+
+      &:hover {
+        background-color: transparent;
+        color: var(--black);
+      }
+    }
+  }
+  .options {
+    border-radius: 0rem 2rem 2rem 0rem;
+    background-color: var(--color-options);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 3rem;
+    padding: 3rem;
+
+    span {
+      font-size: 1.2rem;
+    }
+    .left_options,
+    .right_options {
+      div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 1rem;
+        input {
+          margin-left: 1rem;
+        }
+      }
+    }
+  }
+}
