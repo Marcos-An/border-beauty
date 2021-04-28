@@ -33,3 +33,15 @@
     animation-delay: 6s;
   }
 }
+
+@media screen and (max-width: 720px) {
+  .tittle {
+    text-align: left;
+    margin-left: 50% !important;
+    font-size: 4rem;
+
+    span:nth-child(2) {
+      margin-left: 7rem;
+    }
+  }
+}

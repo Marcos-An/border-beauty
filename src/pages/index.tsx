@@ -28,56 +28,55 @@ export default function Home() {
           </button>
         </div>
         <div className={styles.options}>
-          <div className={styles.left_options}>
-            <div>
-              <span>W</span>
-              <input
-                min="1"
-                value={width}
-                onBlur={() => isEmpty()}
-                onChange={({ target }) => updateWidth(target.value)}
-                className={styles.input}
-                type="number"
-              />
-            </div>
-            <div>
-              <Angle />
-              <input
-                value={rotate}
-                max="360"
-                min="-360"
-                className={styles.input}
-                onBlur={() => isEmpty()}
-                onChange={({ target }) => updateRotate(target.value)}
-                type="number"
-              />
-            </div>
+          <div>
+            <span>W</span>
+            <input
+              min="1"
+              value={width}
+              onBlur={() => isEmpty()}
+              onChange={({ target }) => updateWidth(target.value)}
+              className={styles.input}
+              type="number"
+            />
           </div>
-          <div className={styles.right_options}>
-            <div>
-              <span>H</span>
-              <input
-                value={height}
-                className={styles.input}
-                min="1"
-                onBlur={() => isEmpty()}
-                onChange={({ target }) => updateHeight(target.value)}
-                type="number"
-              />
-            </div>
-            <div>
-              <LeftTop />
-              <input
-                value={borderRadius}
-                min="0"
-                onBlur={() => isEmpty()}
-                onChange={({ target }) => updateBorderRadius(target.value)}
-                className={styles.input}
-                type="number"
-              />
-            </div>
+          <div>
+            <Angle />
+            <input
+              value={rotate}
+              min="-360"
+              className={styles.input}
+              onBlur={() => isEmpty()}
+              onChange={({ target }) => updateRotate(target.value)}
+              type="number"
+            />
+          </div>
+          <div>
+            <span>H</span>
+            <input
+              value={height}
+              className={styles.input}
+              min="1"
+              onBlur={() => isEmpty()}
+              onChange={({ target }) => updateHeight(target.value)}
+              type="number"
+            />
+          </div>
+          <div>
+            <LeftTop />
+            <input
+              value={borderRadius}
+              min="0"
+              onBlur={() => isEmpty()}
+              onChange={({ target }) => updateBorderRadius(target.value)}
+              className={styles.input}
+              type="number"
+            />
+          </div>
+          <div>
 
           </div>
+
+
         </div>
       </div>
     </div >
