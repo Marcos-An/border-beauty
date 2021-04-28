@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .buttonAllBordersActive {
+    padding: 0.5em 1rem;
+    border-radius: 0.4rem;
+    border: none;
+    background: linear-gradient(135deg, #e09, #d0e);
+    path {
+      fill: var(--white);
+    }
+  }
+
+  .buttonAllBorders {
+    padding: 0.5em 1rem;
+    border-radius: 0.4rem;
+    border: none;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+  }
+}
+
+.borderWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-left: 1rem;
+
+  input {
+    margin-left: 0px !important;
+    text-align: center;
+    padding: 1.5rem 0.5rem;
+    width: 30% !important;
+  }
+
+  .inputDisabled {
+    filter: brightness(0.6);
+  }
+
+  input:nth-child(1) {
+    border-radius: 1rem 0rem 0rem 1rem;
+  }
+  input:nth-child(2) {
+    border-radius: 0rem;
+  }
+  input:nth-child(3) {
+    border-radius: 0rem;
+  }
+  input:nth-child(4) {
+    border-radius: 0rem 1rem 1rem 0rem;
+  }
+}

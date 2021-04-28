@@ -50,11 +50,16 @@
     span {
       font-size: 1.2rem;
     }
+
+    .inputDisabled {
+      filter: brightness(0.6);
+    }
+
     div {
       display: flex;
       flex-direction: row;
       align-items: center;
-      margin-bottom: 1rem;
+
       input {
         margin-left: 1rem;
       }

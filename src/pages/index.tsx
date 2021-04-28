@@ -2,13 +2,15 @@ import styles from './home.module.scss';
 import { useContext } from 'react'
 import { SquareContext } from '../Contexts/SquareContext'
 import Square from '../Components/Square'
-import { LeftTop, Angle } from '../Components/Svg'
+import { LeftTopSVG, AngleSVG, AllBordersSVG } from '../Components/Svg'
+import AllBorders from '../Components/AllBorders'
 
 export default function Home() {
   const {
     height,
     width,
     borderRadius,
+    allBordersIsActive,
     rotate,
     updateHeight,
     updateRotate,
@@ -35,16 +37,14 @@ export default function Home() {
               value={width}
               onBlur={() => isEmpty()}
               onChange={({ target }) => updateWidth(target.value)}
-              className={styles.input}
               type="number"
             />
           </div>
           <div>
-            <Angle />
+            <AngleSVG />
             <input
               value={rotate}
               min="-360"
-              className={styles.input}
               onBlur={() => isEmpty()}
               onChange={({ target }) => updateRotate(target.value)}
               type="number"
@@ -54,7 +54,6 @@ export default function Home() {
             <span>H</span>
             <input
               value={height}
-              className={styles.input}
               min="1"
               onBlur={() => isEmpty()}
               onChange={({ target }) => updateHeight(target.value)}
@@ -62,21 +61,30 @@ export default function Home() {
             />
           </div>
           <div>
-            <LeftTop />
+            <LeftTopSVG />
+            <input
+              value={borderRadius}
+              min="0"
+              disabled={allBordersIsActive}
+              onBlur={() => isEmpty()}
+              className={allBordersIsActive ? styles.inputDisabled : ''}
+              onChange={({ target }) => updateBorderRadius(target.value)}
+              type="number"
+            />
+          </div>
+          <div>
+            <LeftTopSVG />
             <input
               value={borderRadius}
               min="0"
               onBlur={() => isEmpty()}
               onChange={({ target }) => updateBorderRadius(target.value)}
-              className={styles.input}
               type="number"
             />
           </div>
           <div>
-
+            <AllBorders />
           </div>
-
-
         </div>
       </div>
     </div >

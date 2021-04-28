@@ -1,6 +1,6 @@
 import styles from "./borders.module.scss";
 
-export const LeftTop = () => {
+export const LeftTopSVG = () => {
   return (
     <span >
       <svg
@@ -21,7 +21,7 @@ export const LeftTop = () => {
   );
 };
 
-export const RightTop = () => {
+export const RightTopSVG = () => {
   return (
     <span>
       <svg
@@ -42,7 +42,7 @@ export const RightTop = () => {
   );
 };
 
-export const RightBottom = () => {
+export const RightBottomSVG = () => {
   return (
     <span>
       <svg
@@ -63,7 +63,7 @@ export const RightBottom = () => {
   );
 };
 
-export const LeftBottom = () => {
+export const LeftBottomSVG = () => {
   return (
     <span>
       <svg
@@ -84,7 +84,7 @@ export const LeftBottom = () => {
   );
 };
 
-export const Angle = () => {
+export const AngleSVG = () => {
   return (
     <span>
       <svg
@@ -99,6 +99,25 @@ export const Angle = () => {
           fill="#fff"
           stroke="none"
         >
+        </path>
+      </svg>
+    </span>
+  );
+};
+
+export const AllBordersSVG = () => {
+  return (
+    <span>
+      <svg
+        width="10"
+        height="10"
+        viewBox="0 0 10 10"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M0 0h3v1H1v2H0V0zm7 0h3v3H9V1H7V0zM1 9V7H0v3h3V9H1zm9-2v3H7V9h2V7h1z"
+          fillOpacity="1"
+          fill="#000"
+          stroke="none">
         </path>
       </svg>
     </span>

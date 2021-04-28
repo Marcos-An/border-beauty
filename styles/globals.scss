@@ -32,8 +32,7 @@ html {
 
 input {
   padding: 1.5rem 2rem;
-  max-width: 100%;
-  min-width: 91%;
+  width: -webkit-fill-available;
   border-radius: 1rem;
   background-color: var(--inputs);
   color: var(--white);
