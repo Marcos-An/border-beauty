@@ -12,7 +12,8 @@ export default function square() {
     rightTop,
     rightBottom,
     leftBottom,
-    allBordersIsActive
+    allBordersIsActive,
+    backgroundColor
   } = useContext(SquareContext)
 
   const square = useContext(SquareContext)
@@ -26,6 +27,8 @@ export default function square() {
     } else {
       squareNode.style.setProperty('border-radius', ` ${borderRadius}px`)
     }
+    squareNode.style
+      .setProperty("background-color", `rgb(${backgroundColor.rgb.r}, ${backgroundColor.rgb.g}, ${backgroundColor.rgb.b}, ${backgroundColor.rgb.a})`)
     squareNode.style.transform = `rotate(${rotate}deg)`
   }, [square])
 

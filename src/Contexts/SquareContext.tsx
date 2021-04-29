@@ -11,11 +11,13 @@ type SquareContextData = {
   leftBottom: string,
   rightTop: string,
   rightBottom: string,
+  backgroundColor: color,
   updateHeight: (height: string) => void,
   updateRotate: (rotate: string) => void,
   updateBorderRadius: (radius: string) => void,
   updateUniqueBorder: (radius: string, unique: string) => void,
   updateWidth: (width: string) => void,
+  updateBackgroundColor: (color: color) => void,
   handleSetAllBordersIsActive: () => void,
   isEmpty: () => void,
   clear: () => void
@@ -26,6 +28,16 @@ export const SquareContext = createContext({} as SquareContextData)
 
 type SquareContextProviderProps = {
   children: ReactNode,
+}
+
+type color = {
+  hex: string,
+  rgb: {
+    r: number,
+    g: number,
+    b: number,
+    a: number,
+  }
 }
 
 export function SquareContextProvider({ children }: SquareContextProviderProps) {
@@ -39,6 +51,15 @@ export function SquareContextProvider({ children }: SquareContextProviderProps) 
   const [rightBottom, setRightBottom] = useState('0')
   const [rotate, setRotate] = useState('0')
   const [allBordersIsActive, setAllBordersIsActive] = useState(false)
+  const [backgroundColor, setBackgroundColor] = useState({
+    hex: '#333',
+    rgb: {
+      r: 51,
+      g: 51,
+      b: 51,
+      a: 1,
+    }
+  })
 
 
   function clear() {
@@ -70,6 +91,10 @@ export function SquareContextProvider({ children }: SquareContextProviderProps) 
     if (!leftBottom) setLeftBottom('0')
     if (!rightTop) setRightTop('0')
     if (!rightBottom) setRightBottom('0')
+  }
+
+  function updateBackgroundColor(color: color) {
+    setBackgroundColor(color)
   }
 
   function updateHeight(height: string) {
@@ -130,11 +155,13 @@ export function SquareContextProvider({ children }: SquareContextProviderProps) 
         leftBottom,
         rightTop,
         rightBottom,
+        backgroundColor,
         updateHeight,
         updateRotate,
         updateBorderRadius,
         handleSetAllBordersIsActive,
         updateUniqueBorder,
+        updateBackgroundColor,
         updateWidth,
         isEmpty,
         clear

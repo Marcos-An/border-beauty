@@ -51,16 +51,43 @@
       font-size: 1.2rem;
     }
 
+    .colorPickerSection {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      position: relative;
+
+      .inputStyle {
+        padding: 1.5rem 2rem;
+        width: -webkit-fill-available;
+        border-radius: 1rem;
+        background-color: var(--inputs);
+        color: var(--white);
+        margin-left: 1rem;
+      }
+    }
+
+    .colorPickerButton {
+      padding: 1.2rem;
+      border: 1px solid var(--gray);
+      border-radius: 0.2rem;
+    }
+
     .inputDisabled {
       filter: brightness(0.6);
     }
 
-    div {
+    .option {
       display: flex;
       flex-direction: row;
       align-items: center;
 
       input {
+        padding: 1.5rem 2rem;
+        width: -webkit-fill-available;
+        border-radius: 1rem;
+        background-color: var(--inputs);
+        color: var(--white);
         margin-left: 1rem;
       }
     }

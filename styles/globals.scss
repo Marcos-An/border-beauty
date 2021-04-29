@@ -30,14 +30,6 @@ html {
   font-size: 62.5%;
 }
 
-input {
-  padding: 1.5rem 2rem;
-  width: -webkit-fill-available;
-  border-radius: 1rem;
-  background-color: var(--inputs);
-  color: var(--white);
-}
-
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;

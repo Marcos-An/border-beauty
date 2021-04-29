@@ -25,14 +25,16 @@
 }
 
 .borderWrapper {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
   margin-left: 1rem;
 
   input {
+    background-color: var(--inputs);
+    color: var(--white);
+
     margin-left: 0px !important;
     text-align: center;
-    padding: 1.5rem 0.5rem;
+    padding: 1.5rem 0.5rem !important;
     width: 30% !important;
   }
 
@@ -41,15 +43,15 @@
   }
 
   input:nth-child(1) {
-    border-radius: 1rem 0rem 0rem 1rem;
+    border-radius: 1rem 0rem 0rem 1rem !important;
   }
   input:nth-child(2) {
-    border-radius: 0rem;
+    border-radius: 0rem !important;
   }
   input:nth-child(3) {
-    border-radius: 0rem;
+    border-radius: 0rem !important;
   }
   input:nth-child(4) {
-    border-radius: 0rem 1rem 1rem 0rem;
+    border-radius: 0rem 1rem 1rem 0rem !important;
   }
 }

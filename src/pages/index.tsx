@@ -1,9 +1,10 @@
 import styles from './home.module.scss';
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { SquareContext } from '../Contexts/SquareContext'
 import Square from '../Components/Square'
-import { LeftTopSVG, AngleSVG, AllBordersSVG } from '../Components/Svg'
+import { LeftTopSVG, AngleSVG } from '../Components/Svg'
 import AllBorders from '../Components/AllBorders'
+import ColorPicker from '../Components/ColorPicker'
 
 export default function Home() {
   const {
@@ -12,6 +13,7 @@ export default function Home() {
     borderRadius,
     allBordersIsActive,
     rotate,
+    backgroundColor,
     updateHeight,
     updateRotate,
     updateBorderRadius,
@@ -19,6 +21,23 @@ export default function Home() {
     isEmpty,
     clear
   } = useContext(SquareContext)
+
+  const [isOpenColorPicker, setIsOpenColorPicker] = useState<boolean>(false)
+  const [color, setColor] = useState<string>('')
+
+  useEffect(() => {
+    const { r, g, b, a } = backgroundColor.rgb
+    document.getElementById('color-picker').style.backgroundColor = `rgb(${r}, ${g}, ${b}, ${a})`
+
+    if (backgroundColor.rgb.a === 1) {
+      setColor(backgroundColor.hex)
+    } else setColor(`rgb(${r}, ${g}, ${b}, ${a})`)
+  }, [backgroundColor])
+
+
+  function handleIsOpenColorPicker() {
+    setIsOpenColorPicker(!isOpenColorPicker)
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -30,7 +49,7 @@ export default function Home() {
           </button>
         </div>
         <div className={styles.options}>
-          <div>
+          <div className={styles.option}>
             <span>W</span>
             <input
               min="1"
@@ -40,7 +59,7 @@ export default function Home() {
               type="number"
             />
           </div>
-          <div>
+          <div className={styles.option}>
             <AngleSVG />
             <input
               value={rotate}
@@ -50,7 +69,7 @@ export default function Home() {
               type="number"
             />
           </div>
-          <div>
+          <div className={styles.option}>
             <span>H</span>
             <input
               value={height}
@@ -60,7 +79,7 @@ export default function Home() {
               type="number"
             />
           </div>
-          <div>
+          <div className={styles.option}>
             <LeftTopSVG />
             <input
               value={borderRadius}
@@ -72,17 +91,16 @@ export default function Home() {
               type="number"
             />
           </div>
-          <div>
-            <LeftTopSVG />
-            <input
-              value={borderRadius}
-              min="0"
-              onBlur={() => isEmpty()}
-              onChange={({ target }) => updateBorderRadius(target.value)}
-              type="number"
+          <div className={styles.colorPickerSection}>
+            {isOpenColorPicker && <ColorPicker handleIsOpenColorPicker={handleIsOpenColorPicker} />}
+            <button
+              id="color-picker"
+              className={styles.colorPickerButton}
+              onClick={() => handleIsOpenColorPicker()}
             />
+            <input value={color} onChange={() => null} className={styles.inputStyle} />
           </div>
-          <div>
+          <div className={styles.option}>
             <AllBorders />
           </div>
         </div>
