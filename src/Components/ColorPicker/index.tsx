@@ -16,7 +16,6 @@ export default function ColorPicker({ handleIsOpenColorPicker }) {
       <div className={styles.colorPickersWrapper}>
         <ChromePicker
           color={backgroundColor}
-
           onChange={(color) => updateBackgroundColor({
             hex: color.hex,
             rgb: {
