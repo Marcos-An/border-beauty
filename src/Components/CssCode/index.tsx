@@ -16,7 +16,9 @@ export default function Component() {
     rightBottom,
     leftBottom,
     allBordersIsActive,
-    backgroundColor } = square
+    backgroundColor, 
+    updateStringCss 
+  } = square
 
   const { r, g, b, a } = backgroundColor.rgb
 
@@ -58,16 +60,18 @@ export default function Component() {
   const [codeString, setCodeString] = useState<string>(``)
 
   useEffect(() => {
-    setCodeString(
-      `div { 
-  ${backgroundColorToString()}
-  ${height !== '0' ? heightToString() : ''}
-  ${width !== '0' ? widthToString() : ''}
-  ${borderRadius !== '0' ? borderRadiusToString() : ''}
-  ${rotate !== '0' ? rotateToString() : ''}
+    const stringEmpetyLines =    `div { 
+      ${backgroundColorToString()}
+      ${height !== '0' ? heightToString() : ''}
+      ${width !== '0' ? widthToString() : ''}
+      ${borderRadius !== '0' ? borderRadiusToString() : ''}
+      ${rotate !== '0' ? rotateToString() : ''}
 }`
-    )
-    localStorage.setItem('codeString', codeString);
+    const removedEmpetyLines = stringEmpetyLines.replace(/^\s*[\r\n]/gm, '');
+    
+    setCodeString(removedEmpetyLines)
+    updateStringCss(removedEmpetyLines)
+
   }, [square])
 
   return (

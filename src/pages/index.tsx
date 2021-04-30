@@ -6,8 +6,7 @@ import { LeftTopSVG, AngleSVG, CopySVG } from '../Components/Svg'
 import AllBorders from '../Components/AllBorders'
 import ColorPicker from '../Components/ColorPicker'
 import CssCode from '../Components/CssCode'
-import Clipboard from 'react-clipboard.js';
-
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 interface option {
   value: string,
@@ -15,12 +14,14 @@ interface option {
 }
 
 export default function Home() {
+  const square = useContext(SquareContext)
   const {
     height,
     width,
     borderRadius,
     allBordersIsActive,
     rotate,
+    stringCss,
     backgroundColor,
     updateHeight,
     updateRotate,
@@ -29,7 +30,7 @@ export default function Home() {
     updateWidth,
     isEmpty,
     clear
-  } = useContext(SquareContext)
+  } = square
 
   const [isOpenColorPicker, setIsOpenColorPicker] = useState<boolean>(false)
   const [color, setColor] = useState<string>('')
@@ -38,9 +39,7 @@ export default function Home() {
     { value: 'rem', isChecked: false },
   ])
 
-
   useEffect(() => {
-    console.log(localStorage.getItem('codeString'))
     const { r, g, b, a } = backgroundColor.rgb
     document.getElementById('color-picker').style.backgroundColor = `rgb(${r}, ${g}, ${b}, ${a})`
 
@@ -72,7 +71,7 @@ export default function Home() {
       <div className={styles.interective_container}>
         <div className={styles.preview}>
           <Square />
-          <button onClick={() => clear()} className={styles.clearButton} type="button">
+          <button onClick={() => clear()} className={styles.copyClipBoard}  type="button">
             Clear All
           </button>
         </div>
@@ -148,10 +147,12 @@ export default function Home() {
                   <span>{option.value}</span>
                 </div>
               ))}
-              <Clipboard className={styles.copyClipBoard} option-text={localStorage.getItem('codeString')} button-title="I'm a tooltip">
-                <CopySVG />
-                copy
-              </Clipboard>
+              <CopyToClipboard text={stringCss}>
+                <button type="button" className={styles.copyClipBoard} >
+                  <CopySVG />
+                  copy  
+                </button>
+              </CopyToClipboard>
             </div>
             <CssCode />
           </div>
