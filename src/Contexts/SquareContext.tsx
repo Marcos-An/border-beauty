@@ -47,7 +47,7 @@ type color = {
 export function SquareContextProvider({ children }: SquareContextProviderProps) {
 
   const [stringCss, setStringCss] = useState('')
-  const [unit, setUnit] = useState('px')
+  const [unit, setUnit] = useState('rem')
   const [height, setHeight] = useState('20')
   const [width, setWidth] = useState('20')
   const [borderRadius, setBorderRadius] = useState('0')

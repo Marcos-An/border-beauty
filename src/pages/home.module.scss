@@ -27,13 +27,15 @@
       border-radius: 0.5rem;
       font-size: 1.5rem;
       font-weight: 500;
-      border: 1px solid var(--black);
-      background-color: var(--black);
+      border:none;
       color: var(--white);
+      background-image: linear-gradient(90deg, #007cf0, #00dfd8);
 
       &:hover {
-        background-color: transparent;
-        color: var(--black);
+        filter: brightness(0.95);
+      }
+      &:active {
+        transform: scale(0.9);
       }
     }
   }

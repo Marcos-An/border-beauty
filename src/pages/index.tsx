@@ -35,8 +35,8 @@ export default function Home() {
   const [isOpenColorPicker, setIsOpenColorPicker] = useState<boolean>(false)
   const [color, setColor] = useState<string>('')
   const [options, setOptions] = useState<option[]>([
-    { value: 'px', isChecked: true },
-    { value: 'rem', isChecked: false },
+    { value: 'px', isChecked: false },
+    { value: 'rem', isChecked: true },
   ])
 
   useEffect(() => {
@@ -71,7 +71,7 @@ export default function Home() {
       <div className={styles.interective_container}>
         <div className={styles.preview}>
           <Square />
-          <button onClick={() => clear()} className={styles.copyClipBoard}  type="button">
+          <button onClick={() => clear()} className={styles.clearButton}  type="button">
             Clear All
           </button>
         </div>
