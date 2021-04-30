@@ -6,7 +6,7 @@ import { LeftTopSVG, AngleSVG, CopySVG } from '../Components/Svg'
 import AllBorders from '../Components/AllBorders'
 import ColorPicker from '../Components/ColorPicker'
 import CssCode from '../Components/CssCode'
-
+import Clipboard from 'react-clipboard.js';
 
 
 interface option {
@@ -40,6 +40,7 @@ export default function Home() {
 
 
   useEffect(() => {
+    console.log(localStorage.getItem('codeString'))
     const { r, g, b, a } = backgroundColor.rgb
     document.getElementById('color-picker').style.backgroundColor = `rgb(${r}, ${g}, ${b}, ${a})`
 
@@ -66,9 +67,6 @@ export default function Home() {
     setOptions([...newOptions])
   }
 
-  function copyToClipboard() {
-
-  }
   return (
     <div className={styles.wrapper}>
       <div className={styles.interective_container}>
@@ -150,10 +148,10 @@ export default function Home() {
                   <span>{option.value}</span>
                 </div>
               ))}
-              <button type="button" className={styles.copyClipBoard} onClick={() => copyToClipboard()}>
+              <Clipboard className={styles.copyClipBoard} option-text={localStorage.getItem('codeString')} button-title="I'm a tooltip">
                 <CopySVG />
                 copy
-              </button>
+              </Clipboard>
             </div>
             <CssCode />
           </div>
