@@ -38,14 +38,51 @@
     }
   }
 
+  .boarOptionsCode {
+    border-radius: 0rem 2rem 2rem 0rem;
+    background-color: var(--color-options);
+    padding: 3rem;
+
+    .cssCode {
+      .copyWrapper {
+        display: flex;
+        align-items: center;
+        margin-top: 2rem;
+        h1 {
+          margin-right: 3rem;
+        }
+        .checkbox {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.5rem;
+          margin-left: 1rem;
+        }
+        .copyClipBoard {
+          margin-left: auto;
+          padding: 0.6rem 2rem;
+          border-radius: 0.3rem;
+          border: none;
+          font-size: 1.5rem;
+          color: var(--white);
+          background-image: linear-gradient(90deg, #007cf0, #00dfd8);
+
+          &:hover {
+            filter: brightness(0.9);
+          }
+          &:active {
+            transform: scale(0.9);
+          }
+        }
+      }
+    }
+  }
   .options {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 60px 60px;
-    border-radius: 0rem 2rem 2rem 0rem;
-    background-color: var(--color-options);
+    border-radius: 0rem 2rem 0rem 0rem;
     grid-gap: 3rem;
-    padding: 3rem;
 
     span {
       font-size: 1.2rem;

@@ -144,3 +144,44 @@ export const CloseSVG = () => {
     </span>
   );
 };
+
+export const CopySVG = () => {
+  return (
+    <span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        x="0px"
+        y="0px"
+        width="12"
+        height="12"
+        viewBox="0 0 172 172"
+      >
+        <g fill="none"
+          stroke="none"
+          strokeWidth="1"
+          strokeLinecap="butt"
+          strokeLinejoin="miter"
+          strokeMiterlimit="10"
+          strokeDasharray=""
+          strokeDashoffset="0"
+          fontFamily="none"
+          fontWeight="none"
+          fontSize="none"
+          textAnchor="none"
+        >
+
+          <path
+            d="M0,172v-172h172v172z"
+            fill="none"
+          >
+          </path>
+          <g fill="#ffffff">
+            <path
+              d="M28.66667,14.33333c-7.91917,0 -14.33333,6.41417 -14.33333,14.33333v100.33333h14.33333v-100.33333h100.33333v-14.33333zM57.33333,43c-7.91917,0 -14.33333,6.41417 -14.33333,14.33333v86c0,7.91917 6.41417,14.33333 14.33333,14.33333h86c7.91917,0 14.33333,-6.41417 14.33333,-14.33333v-86c0,-7.91917 -6.41417,-14.33333 -14.33333,-14.33333zM57.33333,57.33333h86v86h-86z">
+            </path>
+          </g>
+        </g>
+      </svg>
+    </span>
+  );
+};

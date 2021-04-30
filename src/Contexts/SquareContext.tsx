@@ -12,11 +12,13 @@ type SquareContextData = {
   rightTop: string,
   rightBottom: string,
   backgroundColor: color,
+  unit: string,
   updateHeight: (height: string) => void,
   updateRotate: (rotate: string) => void,
   updateBorderRadius: (radius: string) => void,
   updateUniqueBorder: (radius: string, unique: string) => void,
   updateWidth: (width: string) => void,
+  changeUnit: (unit: string) => void,
   updateBackgroundColor: (color: color) => void,
   handleSetAllBordersIsActive: () => void,
   isEmpty: () => void,
@@ -42,6 +44,7 @@ type color = {
 
 export function SquareContextProvider({ children }: SquareContextProviderProps) {
 
+  const [unit, setUnit] = useState('px')
   const [height, setHeight] = useState('20')
   const [width, setWidth] = useState('20')
   const [borderRadius, setBorderRadius] = useState('0')
@@ -71,6 +74,10 @@ export function SquareContextProvider({ children }: SquareContextProviderProps) 
     setLeftBottom('0')
     setRightTop('0')
     setRightBottom('0')
+  }
+
+  function changeUnit(unit: string) {
+    setUnit(unit)
   }
 
   function handleSetAllBordersIsActive() {
@@ -148,6 +155,7 @@ export function SquareContextProvider({ children }: SquareContextProviderProps) 
       value={{
         height,
         width,
+        unit,
         borderRadius,
         rotate,
         allBordersIsActive,
@@ -162,6 +170,7 @@ export function SquareContextProvider({ children }: SquareContextProviderProps) 
         handleSetAllBordersIsActive,
         updateUniqueBorder,
         updateBackgroundColor,
+        changeUnit,
         updateWidth,
         isEmpty,
         clear
